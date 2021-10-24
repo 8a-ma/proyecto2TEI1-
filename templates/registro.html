@@ -1,0 +1,126 @@
+{% extends "layout-Navbar.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="col d-flex justify-content-center">
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="card m-2">
+      <div class="card-body">
+        <form class="form row g-3" method="POST">
+
+          <div class="col-md-4">
+            <input class="form-control" type="text" name="nombreUsuario" placeholder="Nombre Usuario">
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" type="text" name="password" placeholder="Contraseña">
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" type="text" name="cpassword" placeholder="Confirmar Contraseña">
+          </div>
+
+          <!-- 1 -->
+          <div class="col-12">
+            <h5>¿Cuántas veces a la semana consumes productos pecuarios? (carne roja, cerdo, pollo, pescado, huevos, productos lácteos)</h5>
+            <select class="form-select" name="Quest1">
+              <option value=5>Todos los días</option>
+              <option value=4>Entre 5 y 6 días</option>
+              <option value=2>Menos de 3 o 4 días</option>
+              <option value=1>Nunca</option>
+            </select>
+          </div>
+
+          <!-- 2 -->
+          <div class="col-12">
+            <h5>¿Qué cantidad de tus desechos reciclas? (vidrio, latas y aluminio, papel y cartón, envases de cartón para bebida y plásticos)</h5>
+            <select class="form-select" name="Quest2">
+              <option value=5>Reciclo todo lo que puedo</option>
+              <option value=4>Reciclo entre 3 y 4 de los materiales mencionados</option>
+              <option value=2>Reciclo entre 1 y 2 de los materiales mencionados</option>
+              <option value=1>No reciclo</option>
+            </select>
+          </div>
+
+          <!-- 3 -->
+          <div class="col-12">
+            <h5>¿Con que frecuencia utilizas plásticos de un solo uso? (Cubiertos de plástico desechables, bolsas y envases plásticos desechables, etc.)</h5>
+            <select class="form-select" name="Quest3">
+              <option value=5>Siempre</option>
+              <option value=3>Ocasionalmente</option>
+              <option value=2>Pocas veces</option>
+              <option value=1>Nunca</option>
+            </select>
+          </div>
+
+          <!-- 4 -->
+          <div class="col-12">
+            <h5>¿Cuánta parte de los alimentos que consumes son productos locales no procesados (envasados)?</h5>
+            <select class="form-select" name="Quest4">
+              <option value=5>La totalidad</option>
+              <option value=4>Tres cuartos</option>
+              <option value=2>La mitad</option>
+              <option value=1>Menos o igual a un cuarto</option>
+            </select>
+          </div>
+
+          <!-- 5 -->
+          <div class="col-12">
+            <h5>¿Cuánta atención le prestas al cuidado de la electricidad?</h5>
+            <select class="form-select" name="Quest5">
+              <option value=5>Le presto mucha atención (Eficiencia de los electrodomésticos)</option>
+              <option value=3>Trato de no derrochar (Apago luces y televisores)</option>
+              <option value=1>No lo presto atención</option>
+            </select>
+          </div>
+
+          <!-- 6 -->
+          <div class="col-12" >
+            <h5>¿Cuánta atención le prestas al cuidado del agua?</h5>
+            <select class="form-select" name="Quest6">
+              <option value=5>Mucha atención (Reutilizo toda la que puedo)</option>
+              <option value=3>Trato de no derrochar (Duchas y lavados eficientes)</option>
+              <option value=1>No le presto atención</option>
+            </select>
+          </div>
+
+          <!-- 7 -->
+          <div class="col-12">
+            <h5>Respecto al transporte ¿Qué sueles utilizar?</h5>
+            <select class="form-select" name="Quest7">
+              <option value=5>Vehículo particular sin acompañantes</option>
+              <option value=4.1>Vehículo particular con acompañantes</option>
+              <option value=3.3>Servicios de transporte (Taxi, Uber, etc.)</option>
+              <option value=2.5>Transporte publico (Micro, Metro, Colectivo, etc.)</option>
+              <option value=1>Vehículos eléctricos (Scooter, Bicicleta, Automóvil)</option>
+              <option value=0.83>Vehículos de tracción humana o caminata (Bicicleta, Patines, etc.)</option>
+            </select>
+          </div>
+
+          <!-- 8 -->
+          <div class="col-12">
+            <h5>Respecto a la compra de productos no consumibles. (Ropa, Electrónica, Juguetes, etc.)</h5>
+            <select class="form-select" name="Quest8">
+              <option value=5>Compro productos de segunda mano</option>
+              <option value=4>Compro pocos productos pero duraderos</option>
+              <option value=2>Compro muchos productos que ocupo poco</option>
+              <option value=1>No le presto atención a lo que compro</option>
+            </select>
+          </div>
+
+
+          <input class="btn btn-primary btn-lg btn-block" type="submit"  value="Registrate">
+        </form>
+        <p class="mt-2">¿Ya te has registrado? <a href="/">Ingresa aquí</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

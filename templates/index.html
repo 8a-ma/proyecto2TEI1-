@@ -1,0 +1,29 @@
+{% extends "layout-Navbar.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="col d-flex justify-content-center">
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="card m-3">
+      <div class="card-body">
+        <form class="form" method="POST" action="/login">
+          <label>Nombre Usuario</label><br>
+          <input class="form-control" type="text" name="nombreUsuario"><br>
+          <label>Contraseña</label><br>
+          <input class="form-control" type="text" name="password"><br>
+          <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ingresa">
+        </form>
+        <p class="mt-2">¿Aún no te has registrado? <a href="/registro">Registrate aquí</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

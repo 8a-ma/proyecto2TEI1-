@@ -1,0 +1,130 @@
+{% extends "layout-General.html" %}
+{% block body %}
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/profile.css')}}">
+
+<a href="/logout">Salir</a>
+
+<div class="container py-5 h-100">
+
+  <div class="row align-items-start">
+    <div class="col-4">
+      <h1>Usuario: {{nombre}}</h1>
+      <h1>Nivel Alimentacion: {{NivelComida}} </h1>
+      <h1>Nivel Transporte: {{NivelTrasporte}} </h1>
+      <h1>Nivel Reciclaje: {{NivelReciclaje}} </h1>
+      <h1>Nivel Consumo: {{NivelConsumo}} </h1>
+      <h1>Nivel Recursos: {{NivelRecursos}} </h1>
+      <h1>Nivel General: {{PromedioNivel}}</h1>
+    </div>
+    <div class="col-4">
+      <div style="height:15vh; width:25vw">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-6 ">
+      <div class="card">
+        <div class="card-body p5">
+          <div class="tab-content">
+            <div class="tab-pane fade show active">
+              <div class="list-group">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-4">
+      <div class="card">
+        <div class="card-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var marksCanvas = document.getElementById("myChart");
+
+  var marksData = {
+    labels: ["Alimentacion", "Transporte", "Reciclaje", "Consumo", "Recursos"],
+    datasets: [{
+      label: "Niveles de {{nombre}}",
+      backgroundColor: "rgba(200,0,0,0.2)",
+      data: [{{NivelComida}}, {{NivelTrasporte}}, {{NivelReciclaje}}, {{NivelConsumo}},  {{NivelRecursos}}]
+    }]
+  };
+
+  var option = {
+    scale: {
+      max: 5,
+      min: 0,
+      ticks: {
+        stepSize: 1
+        }
+    }
+  };
+
+  var radarChart = new Chart(marksCanvas, {
+    type: 'radar',
+    data: marksData,
+    options: option
+    });
+</script>
+<script>
+  const DivClassListGroup = document.querySelector('div.list-group');
+
+  const PromedioNivel = {{PromedioNivel}};
+
+  function ListaTareasxNivel(JsonFile){
+    for (let keyName of JsonFile){
+      if(keyName['nivel'] == PromedioNivel){
+        for(var i=1; i < 5; i++){ // Se tiene que definir un numero igual de tareas o buscar la manera de saber cuantas tareas hay por nivel
+          var tarea = 'tarea' + i.toString();
+
+          const label = document.createElement('label');
+          label.classList.add('list-group-item', 'd-flex', 'mb-2', 'list-group-item-action');
+          label.style.backgroundColor = '#f4f6f7';
+
+          const input = document.createElement('INPUT');
+          input.setAttribute("type", "checkbox");
+          input.classList.add('form-check-input', 'me-1');
+
+          const p = document.createElement('p');
+          p.classList.add('p-1');
+          p.textContent = keyName[tarea];
+
+          label.appendChild(input);
+          label.appendChild(p);
+
+          DivClassListGroup.appendChild(label);
+        }
+      }
+    }
+  }
+
+  function CheckTarea(){
+  }
+
+
+  function JsonRespuesta() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', './static/Tareas.json', true);
+    xhttp.send();
+    xhttp.onreadystatechange = function (){
+      if(this.readyState == 4 && this.status == 200){
+        const JsonTareasParse = JSON.parse(this.responseText);
+        ListaTareasxNivel(JsonTareasParse);
+        CheckTarea();
+      }
+    }
+  }
+
+  JsonRespuesta();
+
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout-Profile.html" %}
+
+{% block tareas %}
+
+<label class="list-group-item d-flex mb-2 list-group-item-action">
+
+  {% if listaTareas[0] == 0 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/1';">
+  {% endif %}
+
+  {% if listaTareas[0] == 1 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/1';" checked disabled>
+  {% endif %}
+
+  <p class="p-1">Tarea 1 nivel 5</p>
+</label>
+
+
+<label class="list-group-item d-flex mb-2 list-group-item-action">
+
+  {% if listaTareas[1] == 0 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/2';">
+  {% endif %}
+
+  {% if listaTareas[1] == 1 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/2';" checked disabled>
+  {% endif %}
+
+  <p class="p-1">Tarea 2 nivel 5</p>
+</label>
+
+<label class="list-group-item d-flex mb-2 list-group-item-action">
+
+  {% if listaTareas[2] == 0 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/3';">
+  {% endif %}
+
+  {% if listaTareas[2] == 1 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/3';" checked disabled>
+  {% endif %}
+
+  <p class="p-1">Tarea 3 nivel 5</p>
+</label>
+
+<label class="list-group-item d-flex mb-2 list-group-item-action">
+
+  {% if listaTareas[3] == 0 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/4';">
+  {% endif %}
+
+  {% if listaTareas[3] == 1 %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/4';" checked disabled>
+  {% endif %}
+
+  <p class="p-1">Tarea 4 nivel 5</p>
+</label>
+
+{% endblock %}
