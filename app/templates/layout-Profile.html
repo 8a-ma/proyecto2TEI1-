@@ -1,7 +1,7 @@
 {% extends "layout-General.html" %}
 {% block body %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container-fluid">
     <a class="navbar-brand"><i class="fas fa-recycle fa-3x"></i></a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -15,31 +15,35 @@
 
 <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/profile.css')}}">
 
-<div class="container py-5 h-100">
+<div class="body">
+  <div class="container py-5 h-100">
 
-  <div class="row">
-    <div class="col-4">
-      <div style="height:15vh; width:25vw">
-        <canvas id="myChart"></canvas>
+    <div class="row">
+      <div class="col-4">
+        <div style="height:15vh; width:25vw">
+          <canvas id="myChart"></canvas>
+        </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body p5">
-          <div class="tab-content">
-            <div class="tab-pane fade show active">
-              {% block tareas %}
+      <div class="col-7 mx-2 mb-2">
+        <div class="card">
+          <div class="card-body p5">
+            <div class="tab-content">
+              <div class="tab-pane fade show active">
+                {% block tareas %}
 
-              {% endblock %}
+                {% endblock %}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
         </div>
       </div>
     </div>

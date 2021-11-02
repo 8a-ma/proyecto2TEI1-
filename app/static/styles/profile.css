@@ -1,3 +1,21 @@
 .form-check-input.me-1:checked + p{
   text-decoration: line-through;
 }
+
+.body{
+  height: 100%;
+  width: 100%;
+}
+
+#myChart{
+  background-color: #bff3db;
+  color:#d1e7dd;
+}
+
+.card{
+  background-color: #94e1be;
+}
+
+input{
+  background-color: #bff3db;
+}

@@ -1,8 +1,12 @@
 {% extends "layout-Navbar.html" %}
 
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
+{% endblock %}
+
 {% block body %}
-<div class="container">
-  <div class="col d-flex justify-content-center">
+<div class="body">
+  <div class="container" style="width: 100%;">
     {% with messages = get_flashed_messages()%}
       {% if messages %}
         {% for message in messages %}
@@ -12,16 +16,25 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-    <div class="card m-3">
-      <div class="card-body">
-        <form class="form" method="POST" action="/login">
-          <label>Nombre Usuario</label><br>
-          <input class="form-control" type="text" name="nombreUsuario"><br>
-          <label>Contraseña</label><br>
-          <input class="form-control" type="password" name="password"><br>
-          <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ingresa">
-        </form>
-        <p class="mt-2">¿Aún no te has registrado? <a href="/registro">Registrate aquí</a></p>
+    <div class="row justify-content-around" style="width: 100%;">
+      <div class="col-7">
+        <h1 class="display-4 mt-5 pt-5 d-flex justify-content-center" style="font-size:110px; color:#d1e7dd;">EcoQuest</h1>
+      </div>
+      <div class="col-4">
+        <div class="card mt-5">
+          <div class="card-body">
+            <form class="form" method="POST" action="/login">
+              <label>Nombre Usuario</label><br>
+              <input class="form-control" type="text" name="nombreUsuario" style="background-color: #bff3db;"><br>
+              <label>Contraseña</label><br>
+              <input class="form-control" type="password" name="password" style="background-color: #bff3db;"><br>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ingresa">
+              </div>
+            </form>
+            <p class="mt-2">¿Aún no te has registrado? <a href="/registro">Registrate aquí</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
