@@ -14,11 +14,11 @@ app.testing = True
 app.secret_key = 'EstaEsLaContraseñaQueNoDeberiasConocerBesitosMua'
 
 config = {
-    'user': 'WcXxK1B0d3',
-    'password': 'Q8uj4vnKZj',
-    'host': 'remotemysql.com',
+    'user': 'root',
+    'password': 'root',
+    'host': 'localhost',
     'port': 3306,
-    'database': 'WcXxK1B0d3'
+    'database': 'Proyecto_tei'
 }
 
 conn = mysql.connector.connect(**config)
