@@ -7,12 +7,7 @@
   width: 100%;
 }
 
-#myChart{
-  background-color: #bff3db;
-  color:#d1e7dd;
-}
-
-.card{
+.card label{
   background-color: #94e1be;
 }
 

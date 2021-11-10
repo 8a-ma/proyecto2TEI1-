@@ -5,11 +5,11 @@
 <label class="list-group-item d-flex mb-2 list-group-item-action">
 
   {% if listaTareas[0] == 0 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/1';">
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[0]}}';">
   {% endif %}
 
-  {% if listaTareas[0] == 1 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/1';" checked disabled>
+  {% if (listaTareas[0] == 1) or (NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5) %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[0]}}';" checked disabled>
   {% endif %}
 
   {% if keyTresTareaMenores[0] == 'NivelAlimento' %}
@@ -26,7 +26,7 @@
     <p class="p-1">Consumir en tu dieta la mitad en productos no procesados </p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -44,7 +44,7 @@
     <p class="p-1">Usar vehículos de tracción humana o caminata (Bicicleta, Patines, etc.)</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -62,7 +62,7 @@
     <p class="p-1">Recilar 5 de los siguientes materiales:latas, aluminio, papel, cartón, plástico y vidrio</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5 %}
-    <p class="p-1">Recicljar la totalidad de los siguientes materiales: latas, aluminio, papel, cartón, plástico y vidrio</p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -80,7 +80,7 @@
     <p class="p-1">Comprar pocas cosas pero que sean duraderos</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -98,7 +98,7 @@
     <p class="p-1">Reutilizar el agua</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[0]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 </label>
@@ -106,11 +106,11 @@
 
 <label class="list-group-item d-flex mb-2 list-group-item-action">
   {% if listaTareas[1] == 0 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/2';">
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[1]}}';">
   {% endif %}
 
-  {% if listaTareas[1] == 1 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/2';" checked disabled>
+  {% if (listaTareas[1] == 1) or (NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5) %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[1]}}';" checked disabled>
   {% endif %}
   {% if keyTresTareaMenores[1] == 'NivelAlimento' %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 1 %}
@@ -126,7 +126,7 @@
     <p class="p-1">Consumir en tu dieta la mitad en productos no procesados </p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -144,7 +144,7 @@
     <p class="p-1">Usar vehículos de tracción humana o caminata (Bicicleta, Patines, etc.)</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -162,7 +162,7 @@
     <p class="p-1">Recilar 5 de los siguientes materiales:latas, aluminio, papel, cartón, plástico y vidrio</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5 %}
-    <p class="p-1">Recicljar la totalidad de los siguientes materiales: latas, aluminio, papel, cartón, plástico y vidrio</p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -180,7 +180,7 @@
     <p class="p-1">Comprar pocas cosas pero que sean duraderos</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -198,19 +198,20 @@
     <p class="p-1">Reutilizar el agua</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[1]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 </label>
 
 <label class="list-group-item d-flex mb-2 list-group-item-action">
   {% if listaTareas[2] == 0 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/3';">
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[2]}}';">
   {% endif %}
 
-  {% if listaTareas[2] == 1 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/3';" checked disabled>
+  {% if (listaTareas[2] == 1) or (NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5) %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[2]}}';" checked disabled>
   {% endif %}
+
   {% if keyTresTareaMenores[2] == 'NivelAlimento' %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 1 %}
     <p class="p-1">Consumir en tu dieta almenos entre un cuarto y la mitad en productos locales no procesados</p>
@@ -225,7 +226,7 @@
     <p class="p-1">Consumir en tu dieta la mitad en productos no procesados </p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -243,7 +244,7 @@
     <p class="p-1">Usar vehículos de tracción humana o caminata (Bicicleta, Patines, etc.)</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -261,7 +262,7 @@
     <p class="p-1">Recilar 5 de los siguientes materiales:latas, aluminio, papel, cartón, plástico y vidrio</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5 %}
-    <p class="p-1">Recicljar la totalidad de los siguientes materiales: latas, aluminio, papel, cartón, plástico y vidrio</p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -279,7 +280,7 @@
     <p class="p-1">Comprar pocas cosas pero que sean duraderos</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -297,18 +298,18 @@
     <p class="p-1">Reutilizar el agua</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[2]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 </label>
 
 <label class="list-group-item d-flex mb-2 list-group-item-action">
   {% if listaTareas[3] == 0 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/4';">
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[3]}}';">
   {% endif %}
 
-  {% if listaTareas[3] == 1 %}
-  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/4';" checked disabled>
+  {% if (listaTareas[3] == 1) or (NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5) %}
+  <input type="checkbox" class="form-check-input me-1" name="tarea 1" onclick="document.location.href='/checked/{{keyTresTareaMenores[3]}}';" checked disabled>
   {% endif %}
   {% if keyTresTareaMenores[3] == 'NivelAlimento' %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 1 %}
@@ -324,7 +325,7 @@
     <p class="p-1">Consumir en tu dieta la mitad en productos no procesados </p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -342,7 +343,7 @@
     <p class="p-1">Usar vehículos de tracción humana o caminata (Bicicleta, Patines, etc.)</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -360,7 +361,7 @@
     <p class="p-1">Recilar 5 de los siguientes materiales:latas, aluminio, papel, cartón, plástico y vidrio</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5 %}
-    <p class="p-1">Recicljar la totalidad de los siguientes materiales: latas, aluminio, papel, cartón, plástico y vidrio</p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -378,7 +379,7 @@
     <p class="p-1">Comprar pocas cosas pero que sean duraderos</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
@@ -396,7 +397,7 @@
     <p class="p-1">Reutilizar el agua</p>
     {% endif %}
     {% if NivelesOrdenadosPorMenor[keyTresTareaMenores[3]] == 5 %}
-    <p class="p-1"></p>
+    <p class="p-1">Sin Tareas</p>
     {% endif %}
   {% endif %}
 
