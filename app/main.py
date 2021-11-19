@@ -241,17 +241,14 @@ def profile():
 def checked(Numtarea):
     newCursor= conn.cursor(buffered=True, dictionary=True)
 
-    tarea = 'tarea' + ' ' + Numtarea
+    tarea = 'tarea' + ' ' + str(Numtarea)
 
     newCursor.execute(""" SELECT * FROM `Tareas` WHERE id_usuario = '{}'""".format(session['id']))
     TareaValor = newCursor.fetchone()
 
-    if TareaValor[tarea] == 0:
-        newCursor.execute(""" UPDATE `Tareas` SET `{}` = '{}' WHERE `Tareas`.id_usuario = '{}' """.format(tarea, 1, session['id']) )
-        conn.commit()
-    else:
-        newCursor.execute(""" UPDATE `Tareas` SET `{}` = '{}' WHERE `Tareas`.id_usuario = '{}' """.format(tarea, 0, session['id']) )
-        conn.commit()
+    newCursor.execute(""" UPDATE `Tareas` SET `{}` = '{}' WHERE `Tareas`.id_usuario = '{}' """.format(tarea, 1, session['id']) )
+    conn.commit()
+    
 
     newCursor.close()
     return redirect(url_for('profile'))
